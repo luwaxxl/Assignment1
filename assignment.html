@@ -1,0 +1,159 @@
+<html>
+<head>
+	<title>Assignment</title>
+</head>
+<body>
+	<p id="getArray"></p>
+	<p id="getObjProp"></p>
+	<p id="getMeTheProp"></p>
+
+
+	<input type="form" id="firstItem" placeholder="Orange"><br>
+	<input type="form" id="secondItem" placeholder="Mango"><br>
+	<input type="form" id="thirdItem" placeholder="Banana">
+
+	<p id="sum"></p>
+
+	<input type="button" id="sum" value="Enter" onclick="enterSum()">
+
+
+	<p id="getTime"></p>
+	<p id="getHour"></p>
+	<p id="getYear"></p>
+
+	<p id="newWay"></p>
+
+	<p id="myArrow"></p>
+
+	<p id="fmb">I am formerly black</p>
+
+	<div id="myDiv"></div>
+
+	<button id="listen">listen</button>
+
+	<div id="seunDiv" style="background:pink;width:300px;height:300px;padding:60px;">
+	<button onclick="removeThisHandler()" id="removeButton">Remove</button>
+	</div>
+
+	<p id="changeRandomly"></p>
+	
+
+
+	<script type="text/javascript">
+
+
+	var getDateForMe = new Date
+	var months= ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+	document.getElementById("getTime").innerHTML = months[getDateForMe.getMonth()];
+
+	document.getElementById("getHour").innerHTML = getDateForMe.getHours();
+
+
+	var getYear = new Date();
+	getYear.setFullYear(2021);
+	
+	document.getElementById("getYear").innerHTML = getYear;
+
+
+
+
+	// ARRAYS
+
+	var musicalInstruments = ["Guitar", "Keyboard", "Violin", "Saxophone", "Trumpet"];
+	var music = "";
+	var i;
+	for(i = 0; i < musicalInstruments.length; i++){
+		music += musicalInstruments[i] + ",<br>";
+	};
+    document.getElementById("getArray").innerHTML = music;
+
+    // OBJECTS
+
+    var myTextDisplay = "";
+    var billionaires = {fname:"Elon", lname:"musk", age:41, car:"alexa"};
+    var x;
+
+    for(x in billionaires){
+    	myTextDisplay += billionaires[x] + ",<br>";
+    };
+    document.getElementById("getObjProp").innerHTML = myTextDisplay;
+
+    var dept = {bfn:"Account", 
+    			ade:"Literature", 
+    			compScience:"Maths", 
+    			fullCourse: function()
+    				{
+	    				return this.ade + ", " + this.compScience;}
+    			};
+    document.getElementById("getMeTheProp").innerHTML = dept.fullCourse();
+
+
+    var x = 5;
+    var y = 2;
+     var z = y%x;
+
+     document.getElementById("getMeTheProp").innerHTML = z;
+
+
+
+     	function enterSum(){
+		var getFirstItem = document.getElementById("firstItem").value;
+		var getSecItem = document.getElementById("secondItem").value;
+		var getThirdItem = document.getElementById("thirdItem").value;
+
+		var getFirstItemNum = parseInt(getFirstItem)
+		var getSectItemNum = parseInt(getSecItem)
+		var getThirdItemNum = parseInt(getThirdItem)
+
+		var sumOfItem = getFirstItemNum + getSectItemNum + getThirdItemNum;
+
+         document.getElementById("sum").innerHTML = alert(sumOfItem);
+	}
+
+
+	var hello;
+
+	hello = function(){
+		return "Hello Dear"
+	}
+
+	document.getElementById("newWay").innerHTML = hello();
+
+	var usageArrow;
+	var passMe = "with you bro"
+
+	usageArrow = (val) =>  + val;
+	document.getElementById("myArrow").innerHTML = hello("I'm here");
+
+	usageArrow = (passMe) => "I'm here " + passMe;
+	document.getElementById("myArrow").innerHTML = hello(passMe);
+
+	document.getElementById("fmb").style.color = "blue";
+	document.getElementById("fmb").style.fontFamily = "Sans-serif";
+	document.getElementById("fmb").style.fontSize = "large"; 
+
+	document.getElementById("myDiv").style.backgroundColor = "red";
+	document.getElementById("myDiv").style.width = "200px";
+	document.getElementById("myDiv").style.height = "200px";
+
+
+	document.getElementById("listen").addEventListener("mousemove", myFunction);
+
+	function myFunction(){
+		alert("Whats there");
+	}
+
+	document.getElementById("seunDiv").addEventListener("mousemove", moveFunction);
+	function moveFunction(){
+	document.getElementById("changeRandomly").innerHTML = Math.random();
+	}
+
+	function removeThisHandler(){
+		document.getElementById("seunDiv").removeEventListener("mousemove", moveFunction);
+	}
+
+
+	</script>
+</body>
+</html>
